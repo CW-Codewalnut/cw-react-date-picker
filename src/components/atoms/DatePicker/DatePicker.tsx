@@ -26,9 +26,18 @@ export function CustomDatePicker({
     }
   );
 
+  const handleChangeStartDate = (date: Date) => setStartDate(date);
+  const handleChangeEndDate = (date: Date) => setEndDate(date);
+
+  useEffect(() => {
+    const newEndDateAfterStartDateSelection =
+      endDate && startDate && startDate.getTime() > endDate.getTime();
+    newEndDateAfterStartDateSelection ? handleChangeEndDate(startDate) : null;
+  }, [startDate, endDate]);
+
   return (
     <div className={datePickerDynamicClasses}>
-      <span className="text-sm font-serif whitespace-nowrap absolute -top-2 left-3 px-1 bg-white text-black text-opacity-60">
+      <span className="text-sm font-semibold	 whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
         Start Date
       </span>
       <button
@@ -41,7 +50,7 @@ export function CustomDatePicker({
       >
         <DatePicker
           placeholderText="Start Date"
-          calendarClassName="!border-none !shadow !flex"
+          calendarClassName="!shadow-lg !flex !border-none"
           className="focus:outline-none w-fit text-sm font-medium"
           dateFormat="EEEE, dd MMM yyyy"
           minDate={new Date()}
@@ -69,7 +78,7 @@ export function CustomDatePicker({
             aria-label="Select departure date"
           >
             <DatePicker
-              calendarClassName="!border-none !shadow !flex"
+              calendarClassName="!shadow-lg !flex !border-none"
               placeholderText="End Date"
               className="focus:outline-none w-fit text-sm font-medium"
               dateFormat="EEEE, dd MMM yyyy"
