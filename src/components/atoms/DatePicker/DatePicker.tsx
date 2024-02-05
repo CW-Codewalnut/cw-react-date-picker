@@ -6,11 +6,23 @@ import "react-datepicker/dist/react-datepicker.css";
 interface CustomDatePickerProps {
   isEndDate?: boolean;
   additionalDatePickerClasses?: string;
+  calendarStartFromMondayDay?: boolean;
+  startDatePlaceHolder?: string;
+  endDatePlaceHolder?: string;
+  startDateHeading?:string;
+  endDateHeading?:string;
+  endDateLimit?: Date;
 }
 
 export function CustomDatePicker({
   isEndDate,
   additionalDatePickerClasses = "",
+  calendarStartFromMondayDay,
+  startDatePlaceHolder,
+  startDateHeading,
+  endDateHeading,
+  endDatePlaceHolder,
+  endDateLimit
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [isStartDateOpen, setIsStartDateOpen] = useState<boolean>(false);
@@ -25,7 +37,7 @@ export function CustomDatePicker({
       [additionalDatePickerClasses]: additionalDatePickerClasses,
     }
   );
-
+    console.log({endDate , startDate});
   const handleChangeStartDate = (date: Date) => setStartDate(date);
   const handleChangeEndDate = (date: Date) => setEndDate(date);
 
@@ -38,7 +50,7 @@ export function CustomDatePicker({
   return (
     <div className={datePickerDynamicClasses}>
       <span className="text-sm font-semibold	 whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
-        Start Date
+        {startDateHeading}
       </span>
       <button
         onClick={() => {
@@ -49,7 +61,7 @@ export function CustomDatePicker({
         aria-label="Select departure date"
       >
         <DatePicker
-          placeholderText="Start Date"
+          placeholderText={startDatePlaceHolder}
           calendarClassName="!shadow-lg !flex !border-none"
           className="focus:outline-none w-fit text-sm font-medium"
           dateFormat="EEEE, dd MMM yyyy"
@@ -61,13 +73,15 @@ export function CustomDatePicker({
           shouldCloseOnSelect
           startDate={startDate}
           onChange={(date: Date) => handleChangeStartDate(date)}
+          calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
+          maxDate={endDateLimit}
         />
       </button>
       {isEndDate && (
         <>
           <span className="w-1 border-2 border-red-500 mr-5 ml-3" />
           <span className="text-sm font-semibold whitespace-nowrap absolute -top-3 right-3 px-1 bg-white text-black text-opacity-60">
-            End Date
+            {endDateHeading}
           </span>
           <button
             onClick={() => {
@@ -79,7 +93,7 @@ export function CustomDatePicker({
           >
             <DatePicker
               calendarClassName="!shadow-lg !flex !border-none"
-              placeholderText="End Date"
+              placeholderText={endDatePlaceHolder}
               className="focus:outline-none w-fit text-sm font-medium"
               dateFormat="EEEE, dd MMM yyyy"
               minDate={startDate}
@@ -90,6 +104,8 @@ export function CustomDatePicker({
               shouldCloseOnSelect
               startDate={endDate}
               onChange={(date: Date) => handleChangeEndDate(date)}
+              calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
+              maxDate={endDateLimit}
             />
           </button>
         </>
@@ -97,3 +113,12 @@ export function CustomDatePicker({
     </div>
   );
 }
+CustomDatePicker.defaultProps = {
+  isEndDate: false,
+  calendarStartFromMondayDay: false,
+  startDatePlaceHolder : "Start Date",
+  startDateHeading : "Start Date",
+  endDatePlaceHolder : "End Date",
+  endDateHeading : "End Date",
+  endDateLimit : undefined
+};
