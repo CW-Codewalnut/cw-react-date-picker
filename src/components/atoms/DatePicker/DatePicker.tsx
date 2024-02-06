@@ -12,6 +12,7 @@ interface CustomDatePickerProps {
   startDateHeading?:string;
   endDateHeading?:string;
   endDateLimit?: Date;
+  markSundayAsRed ?: boolean;
 }
 
 export function CustomDatePicker({
@@ -22,7 +23,8 @@ export function CustomDatePicker({
   startDateHeading,
   endDateHeading,
   endDatePlaceHolder,
-  endDateLimit
+  endDateLimit,
+  markSundayAsRed
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [isStartDateOpen, setIsStartDateOpen] = useState<boolean>(false);
@@ -61,6 +63,10 @@ export function CustomDatePicker({
         aria-label="Select departure date"
       >
         <DatePicker
+          dayClassName={(date) => clsx(
+            date.toDateString() === startDate?.toDateString()  && '',
+            date.getDay() === 0 && markSundayAsRed && '!text-red-500' // Additional condition, apply font-bold for Sundays
+          )}
           placeholderText={startDatePlaceHolder}
           calendarClassName="!shadow-lg !flex !border-none"
           className="focus:outline-none w-fit text-sm font-medium"
@@ -75,6 +81,7 @@ export function CustomDatePicker({
           onChange={(date: Date) => handleChangeStartDate(date)}
           calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
           maxDate={endDateLimit}
+          
         />
       </button>
       {isEndDate && (
@@ -92,6 +99,7 @@ export function CustomDatePicker({
             aria-label="Select departure date"
           >
             <DatePicker
+              dayClassName={(date) => (date.getDay() === 0 && markSundayAsRed ? '!text-red-500 ' : '')}
               calendarClassName="!shadow-lg !flex !border-none"
               placeholderText={endDatePlaceHolder}
               className="focus:outline-none w-fit text-sm font-medium"
@@ -120,5 +128,6 @@ CustomDatePicker.defaultProps = {
   startDateHeading : "Start Date",
   endDatePlaceHolder : "End Date",
   endDateHeading : "End Date",
-  endDateLimit : undefined
+  endDateLimit : undefined,
+  markSundayAsRed : false
 };
