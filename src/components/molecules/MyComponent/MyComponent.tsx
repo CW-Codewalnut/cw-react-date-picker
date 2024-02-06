@@ -10,6 +10,7 @@ export function MyComponent() {
                         endDatePlaceHolder="End Date"
                         calendarStartFromMondayDay={false}
                         endDateLimit={endDateLimit}
+                        markSundayAsRed={true}
                           />
     </div>
   );
