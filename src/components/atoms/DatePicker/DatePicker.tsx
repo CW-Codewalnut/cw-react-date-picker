@@ -13,10 +13,7 @@ export interface CustomDatePickerProps {
   startDateHeading?:string;
   endDateHeading?:string;
   endDateLimit?: Date;
-<<<<<<< HEAD
   markSundayAsRed ?: boolean;
-=======
->>>>>>> d793ed5 (adding date range, heading, placeholder, week start option)
 }
 
 export function CustomDatePicker({
@@ -27,12 +24,8 @@ export function CustomDatePicker({
   startDateHeading,
   endDateHeading,
   endDatePlaceHolder,
-<<<<<<< HEAD
   endDateLimit,
-  markSundayAsRed
-=======
-  endDateLimit
->>>>>>> d793ed5 (adding date range, heading, placeholder, week start option)
+  markSundayAsRed // (adding color for sunday)
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [isStartDateOpen, setIsStartDateOpen] = useState<boolean>(false);
@@ -47,11 +40,7 @@ export function CustomDatePicker({
       [additionalDatePickerClasses]: additionalDatePickerClasses,
     }
   );
-<<<<<<< HEAD
     
-=======
-    console.log({endDate , startDate});
->>>>>>> d793ed5 (adding date range, heading, placeholder, week start option)
   const handleChangeStartDate = (date: Date) => setStartDate(date);
   const handleChangeEndDate = (date: Date) => setEndDate(date);
 
