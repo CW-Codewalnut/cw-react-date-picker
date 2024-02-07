@@ -40,7 +40,7 @@ export function CustomDatePicker({
       [additionalDatePickerClasses]: additionalDatePickerClasses,
     }
   );
-    console.log({endDate , startDate});
+    
   const handleChangeStartDate = (date: Date) => setStartDate(date);
   const handleChangeEndDate = (date: Date) => setEndDate(date);
 
