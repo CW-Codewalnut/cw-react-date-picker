@@ -62,7 +62,7 @@ export function CustomDatePicker({
           shouldCloseOnSelect
           startDate={startDate}
           onChange={(date: Date) => handleChangeStartDate(date)}
-          renderDayContents={(day, date) => {
+          renderDayContents={(day: number, date: Date) => {
             const isSelectedDate =
               startDate && date
                 ? startDate.toLocaleDateString("en-GB") ===
@@ -107,7 +107,7 @@ export function CustomDatePicker({
               shouldCloseOnSelect
               startDate={endDate}
               onChange={(date: Date) => handleChangeEndDate(date)}
-              renderDayContents={(day, date) => {
+              renderDayContents={(day: number, date: Date) => {
                 const isSelectedDate =
                   endDate && date
                     ? endDate.toLocaleDateString("en-GB") ===
