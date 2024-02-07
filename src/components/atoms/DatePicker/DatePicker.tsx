@@ -26,7 +26,7 @@ export function CustomDatePicker({
       [additionalDatePickerClasses]: additionalDatePickerClasses,
     }
   );
-
+    
   const handleChangeStartDate = (date: Date) => setStartDate(date);
   const handleChangeEndDate = (date: Date) => setEndDate(date);
 
