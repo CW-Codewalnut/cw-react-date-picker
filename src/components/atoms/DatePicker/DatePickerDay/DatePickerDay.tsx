@@ -13,7 +13,6 @@ export function DatePickerDay({
   dayLabel,
   isSelectedDate,
 }: DatePickerDayProps) {
-  console.log({ day, date, dayLabel, isSelectedDate });
   if (date && day && dayLabel) {
     return (
       <div
