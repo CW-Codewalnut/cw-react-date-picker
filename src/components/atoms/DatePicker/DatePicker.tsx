@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { DatePickerDay } from "./DatePickerDay/DatePickerDay";
 
 interface CustomDatePickerProps {
   isEndDate?: boolean;
@@ -61,6 +62,22 @@ export function CustomDatePicker({
           shouldCloseOnSelect
           startDate={startDate}
           onChange={(date: Date) => handleChangeStartDate(date)}
+          renderDayContents={(day: number, date: Date) => {
+            const isSelectedDate =
+              startDate && date
+                ? startDate.toLocaleDateString("en-GB") ===
+                  date.toLocaleDateString("en-GB")
+                : false;
+
+            return (
+              <DatePickerDay
+                dayLabel="start label" // Max 10 chars
+                day={day}
+                date={date}
+                isSelectedDate={isSelectedDate}
+              />
+            );
+          }}
         />
       </button>
       {isEndDate && (
@@ -90,6 +107,22 @@ export function CustomDatePicker({
               shouldCloseOnSelect
               startDate={endDate}
               onChange={(date: Date) => handleChangeEndDate(date)}
+              renderDayContents={(day: number, date: Date) => {
+                const isSelectedDate =
+                  endDate && date
+                    ? endDate.toLocaleDateString("en-GB") ===
+                      date.toLocaleDateString("en-GB")
+                    : false;
+
+                return (
+                  <DatePickerDay
+                    dayLabel="end label" // Max 10 chars
+                    day={day}
+                    date={date}
+                    isSelectedDate={isSelectedDate}
+                  />
+                );
+              }}
             />
           </button>
         </>
