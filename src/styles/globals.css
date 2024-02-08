@@ -3,9 +3,20 @@
 @tailwind components;
 @tailwind utilities;
 
-$base-font-family: "Brandon Grotesque", system-ui, -apple-system,
-  BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$base-font-family:
+  "Brandon Grotesque",
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  "Roboto",
+  "Oxygen",
+  "Ubuntu",
+  "Cantarell",
+  "Fira Sans",
+  "Droid Sans",
+  "Helvetica Neue",
+  sans-serif;
 
 * {
   -moz-box-sizing: border-box;
@@ -46,11 +57,19 @@ li {
 }
 
 .react-datepicker__navigation {
-  margin-top: 8px !important;
+  margin-top: 6px !important;
 }
 
 .react-datepicker__triangle {
   display: none !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  width: 36px !important;
+  margin: 2px !important;
+  height: 36px !important;
 }
 
 .react-datepicker__week {
