@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-interface DatePickerDayProps {
+export interface DatePickerDayProps {
   day: number;
   date: Date;
   dayLabel: string;
