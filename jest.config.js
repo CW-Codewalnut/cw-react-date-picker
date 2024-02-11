@@ -6,11 +6,10 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   rootDir: "./",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/contexts/(.*)$": "<rootDir>/src/contexts/$1",
-    "^@/graphql/(.*)$": "<rootDir>/src/graphql/$1",
     "^@/styles/(.*)$": "<rootDir>/styles/$1",
     "^@/types": "<rootDir>/src/types.d.ts",
     "^@/utils/(.*)$": "<rootDir>/src/utils/$1",
