@@ -6,7 +6,11 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   rootDir: "./",
+<<<<<<< HEAD
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+=======
+  // setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+>>>>>>> b962293 (refactor : try to improve the code)
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/contexts/(.*)$": "<rootDir>/src/contexts/$1",

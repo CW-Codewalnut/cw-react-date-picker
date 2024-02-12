@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { DatePickerDay } from "./DatePickerDay/DatePickerDay";
 
-interface CustomDatePickerProps {
+export interface CustomDatePickerProps {
   isEndDate?: boolean;
   additionalDatePickerClasses?: string;
 }
