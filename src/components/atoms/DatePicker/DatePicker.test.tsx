@@ -26,31 +26,19 @@ describe("CustomDatePicker", () => {
     expect(screen).not.toBeNull();
   });
 
-//   it("renders the start date heading", () => {
-//     renderComponent();
-//     expect(screen.getByText("Start Date")).toBeInTheDocument();
-//   });
-  
-//   it("renders the end date heading when isEndDate is true", () => {
-//     renderComponent();
-//     expect(screen.getByText("End Date")).toBeInTheDocument();
-//   });
-
-//   it("renders the end date placeholder", () => {
-//     renderComponent();
-//     expect(screen.getByPlaceholderText("End Date")).toBeInTheDocument();
-//   });
-
-//   it("opens the start date picker when the start date input is clicked", async () => {
-//     renderComponent();
-//     await userEvent.click(screen.getByPlaceholderText("Start Date"));
-//     expect(screen.getByLabelText("Select departure date")).toBeInTheDocument();
-//   });
-
-  it("opens the end date picker when the end date input is clicked", async () => {
+  it("renders the start date heading", () => {
     renderComponent();
-    await userEvent.click(screen.getByLabelText("End Date"));
-    expect(screen.getByLabelText("End Date")).toBeInTheDocument();
+    expect(screen.getByText("Start Date")).toBeInTheDocument();
+  });
+  
+  it("renders the end date heading when isEndDate is true", () => {
+    renderComponent();
+    expect(screen.getByText("End Date")).toBeInTheDocument();
+  });
+
+  it("renders the end date placeholder", () => {
+    renderComponent();
+    expect(screen.getByPlaceholderText("End Date")).toBeInTheDocument();
   });
 
   // Additional test cases can be added to cover more scenarios
