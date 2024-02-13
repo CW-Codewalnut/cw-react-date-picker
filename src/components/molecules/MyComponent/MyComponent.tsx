@@ -8,9 +8,9 @@ export function MyComponent() {
       <CustomDatePicker isEndDate 
                         startDatePlaceHolder="Start Date"
                         endDatePlaceHolder="End Date"
-                        calendarStartFromMondayDay={false}
+                        calendarStartFromMondayDay
                         endDateLimit={endDateLimit}
-                        markSundayAsRed={true}
+                        markSundayAsRed
                           />
     </div>
   );
