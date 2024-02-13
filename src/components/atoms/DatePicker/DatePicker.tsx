@@ -7,17 +7,28 @@ import { DatePickerDay } from "./DatePickerDay/DatePickerDay";
 export interface CustomDatePickerProps {
   isEndDate?: boolean;
   additionalDatePickerClasses?: string;
+  calendarStartFromMondayDay?: boolean;
+  startDatePlaceHolder?: string;
+  endDatePlaceHolder?: string;
+  startDateLabel?:string;
+  endDateLabel?:string;
+  endDateLimit?: Date;
+  markSundayAsRed ?: boolean;
 }
 
 export function CustomDatePicker({
   isEndDate,
   additionalDatePickerClasses = "",
+  calendarStartFromMondayDay,
+  startDatePlaceHolder,
+  startDateLabel,
+  endDateLabel,
+  endDatePlaceHolder,
+  endDateLimit,
+  markSundayAsRed // (adding color for sunday)
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
-  const [isStartDateOpen, setIsStartDateOpen] = useState<boolean>(false);
-
   const [endDate, setEndDate] = useState<Date>();
-  const [isEndDateOpen, setIsEndDateOpen] = useState<boolean>(false);
 
   const datePickerDynamicClasses = clsx(
     "h-12 pl-4 w-fit pr-3 flex justify-between relative group items-center border rounded-md rounded-tr-none hover:border-gray-600 border-gray-200",
@@ -33,19 +44,17 @@ export function CustomDatePicker({
   useEffect(() => {
     const newEndDateAfterStartDateSelection =
       endDate && startDate && startDate.getTime() > endDate.getTime();
-    newEndDateAfterStartDateSelection ? handleChangeEndDate(startDate) : null;
+    if(newEndDateAfterStartDateSelection){
+      handleChangeEndDate(startDate)
+    };
   }, [startDate, endDate]);
 
   return (
     <div className={datePickerDynamicClasses}>
       <span className="text-sm font-semibold	 whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
-        Start Date
+        {startDateLabel}
       </span>
       <button
-        onClick={() => {
-          setIsStartDateOpen(true);
-          setIsEndDateOpen(false);
-        }}
         type="button"
         aria-label="Select departure date"
       >
@@ -84,13 +93,9 @@ export function CustomDatePicker({
         <>
           <span className="w-1 border-2 border-red-500 mr-5 ml-3" />
           <span className="text-sm font-semibold whitespace-nowrap absolute -top-3 right-3 px-1 bg-white text-black text-opacity-60">
-            End Date
+            {endDateLabel}
           </span>
           <button
-            onClick={() => {
-              setIsStartDateOpen(false);
-              setIsEndDateOpen(true);
-            }}
             type="button"
             aria-label="Select departure date"
           >
@@ -130,3 +135,13 @@ export function CustomDatePicker({
     </div>
   );
 }
+CustomDatePicker.defaultProps = {
+  isEndDate: false,
+  calendarStartFromMondayDay: false,
+  startDatePlaceHolder : "Start Date",
+  startDateLabel : "Start Date",
+  endDatePlaceHolder : "End Date",
+  endDateLabel : "End Date",
+  endDateLimit : undefined,
+  markSundayAsRed : false
+};
