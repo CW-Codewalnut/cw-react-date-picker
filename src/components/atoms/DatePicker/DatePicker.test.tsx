@@ -1,6 +1,5 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { CustomDatePicker, CustomDatePickerProps } from "./DatePicker";
 
 describe("CustomDatePicker", () => {
@@ -11,8 +10,8 @@ describe("CustomDatePicker", () => {
     calendarStartFromMondayDay: true,
     startDatePlaceHolder: "Start Date",
     endDatePlaceHolder: "End Date",
-    startDateHeading: "Start Date",
-    endDateHeading: "End Date",
+    startDateLabel: "Start Date",
+    endDateLabel: "End Date",
     endDateLimit: new Date("Fri Oct 22 2023 19:23:10 GMT+0530 (India Standard Time)"),
     markSundayAsRed: true
   };
