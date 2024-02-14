@@ -90,9 +90,6 @@ export function CustomDatePicker({
               />
             );
           }}
-          calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
-          maxDate={endDateLimit}
-          
         />
       </button>
       {isEndDate && (
@@ -135,8 +132,6 @@ export function CustomDatePicker({
                   />
                 );
               }}
-              calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
-              maxDate={endDateLimit}
             />
           </button>
         </>
