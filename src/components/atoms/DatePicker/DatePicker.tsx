@@ -70,6 +70,8 @@ export function CustomDatePicker({
           shouldCloseOnSelect
           startDate={startDate}
           onChange={(date: Date) => handleChangeStartDate(date)}
+          calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
+          maxDate={endDateLimit}
           renderDayContents={(day: number, date: Date) => {
             const isSelectedDate =
               startDate && date
@@ -111,6 +113,8 @@ export function CustomDatePicker({
               shouldCloseOnSelect
               startDate={endDate}
               onChange={(date: Date) => handleChangeEndDate(date)}
+              calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
+              maxDate={endDateLimit}
               renderDayContents={(day: number, date: Date) => {
                 const isSelectedDate =
                   endDate && date
