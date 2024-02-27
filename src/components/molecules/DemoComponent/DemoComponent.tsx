@@ -8,7 +8,6 @@ export function DemoComponent() {
   const [endDatePlaceholder, setEndDatePlaceholder] = useState("End Date");
   const [isEndDate, setIsEndDate] = useState(false);
   const [calendarStartFromMondayDay, setCalendarStartFromMondayDay] = useState(false);
-  const [markSundayAsRed, setMarkSundayAsRed] = useState(false);
   const [endDateLimit, setEndDateLimit] = useState("");
 
   return (
