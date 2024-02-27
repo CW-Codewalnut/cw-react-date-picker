@@ -14,6 +14,8 @@ export interface CustomDatePickerProps {
   endDateLabel?:string;
   endDateLimit?: Date;
   markSundayAsRed ?: boolean;
+  maxStartDate?: Date;
+  maxEndDate?: Date;
 }
 
 export function CustomDatePicker({
@@ -25,7 +27,9 @@ export function CustomDatePicker({
   endDateLabel,
   endDatePlaceHolder,
   endDateLimit,
-  markSundayAsRed // (adding color for sunday)
+  markSundayAsRed, // (adding color for sunday)
+  maxStartDate,
+  maxEndDate
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>();
@@ -47,7 +51,6 @@ export function CustomDatePicker({
       handleChangeEndDate(startDate)
     };
   }, [startDate, endDate]);
-
   return (
     <div className={datePickerDynamicClasses}>
       <span className="text-sm font-semibold	 whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
@@ -66,7 +69,6 @@ export function CustomDatePicker({
           calendarClassName="!shadow-lg !flex !border-none"
           className="focus:outline-none w-fit text-sm font-medium"
           dateFormat="EEEE, dd MMM yyyy"
-          minDate={new Date()}
           monthsShown={isEndDate ? 2 : 1}
           popperClassName="!py-6"
           selected={startDate}
@@ -75,7 +77,8 @@ export function CustomDatePicker({
           startDate={startDate}
           onChange={(date: Date) => handleChangeStartDate(date)}
           calendarStartDay={calendarStartFromMondayDay ? 1 : 0}
-          maxDate={endDateLimit}
+          minDate={maxStartDate ?? new Date()}
+          maxDate={maxEndDate ?? endDateLimit}
           renderDayContents={(day: number, date: Date) => {
             const isSelectedDate =
               startDate && date
