@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PageWrapper } from "./PageWrapper/PageWrapper";
+import PageWrapper from "./PageWrapper/PageWrapper";
 
 export default function Home() {
   return (
