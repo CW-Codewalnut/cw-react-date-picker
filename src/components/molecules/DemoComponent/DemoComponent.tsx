@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { TextField } from "@/components/atoms/TextField/TextField";
 import { CustomDatePicker } from "@/components/atoms/DatePicker/DatePicker";
 
@@ -22,7 +22,7 @@ export function DemoComponent() {
                     type="text"
                     id="startDateLabel"
                     className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                    onChange={(e) => setStartDateLabel(e.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setStartDateLabel(event.target.value)}
                     name="startDate"/>
           
         </div>
@@ -32,7 +32,7 @@ export function DemoComponent() {
                     type="text"
                     id="endDateLabel"
                     className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                    onChange={(e) => setEndDateLabel(e.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setEndDateLabel(event.target.value)}
                     name="endDate"/>
           
         </div>
@@ -42,7 +42,7 @@ export function DemoComponent() {
                     type="text"
                     id="startDatePlaceholder"
                     className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                    onChange={(e) => setStartDatePlaceholder(e.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setStartDatePlaceholder(event.target.value)}
                     name="endDate"/>
         </div>
         <div className="mb-4">
@@ -51,7 +51,7 @@ export function DemoComponent() {
                     type="text"
                     id="endDatePlaceholder"
                     className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-                    onChange={(e) => setEndDatePlaceholder(e.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setEndDatePlaceholder(event.target.value)}
                     name="endDate"/>
           
         </div>
@@ -61,7 +61,7 @@ export function DemoComponent() {
             id="isEndDate"
             className="mr-2"
             checked={isEndDate}
-            onChange={(e) => setIsEndDate(e.target.checked)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setIsEndDate(event.target.checked)}
           />
           <label htmlFor="isEndDate" className="text-sm font-medium text-gray-700">
             Is End Date
@@ -73,9 +73,9 @@ export function DemoComponent() {
             id="isDob"
             className="mr-2"
             checked={isDob}
-            onChange={(e) => {
-              setIsDob(e.target.checked);
-              if (e.target.checked) {
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              setIsDob(event.target.checked);
+              if (event.target.checked) {
                 setIsEndDate(false); // Disable end date when isDob is true
               }
             }}
@@ -90,7 +90,7 @@ export function DemoComponent() {
             id="calendarStartFromMondayDay"
             className="mr-2"
             checked={calendarStartFromMondayDay}
-            onChange={(e) => setCalendarStartFromMondayDay(e.target.checked)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setCalendarStartFromMondayDay(event.target.checked)}
           />
           <label htmlFor="calendarStartFromMondayDay" className="text-sm font-medium text-gray-700">
             Calendar Starts From Monday
@@ -105,7 +105,7 @@ export function DemoComponent() {
             id="endDateLimit"
             className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
             value={endDateLimit}
-            onChange={(e) => setEndDateLimit(e.target.value)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setEndDateLimit(event.target.value)}
           />
         </div>
         
