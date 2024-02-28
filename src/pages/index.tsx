@@ -1,7 +1,11 @@
 import Head from "next/head";
-import PageWrapper from "./PageWrapper/PageWrapper";
+import Link from "next/link";
+import { Layout } from "@/components/layout";
+import { CustomDatePicker } from "@/components/atoms/DatePicker/DatePicker";
 
 export default function Home() {
+  const endDateLimit = new Date();
+  endDateLimit.setDate(endDateLimit.getDate() + 30);
   return (
     <>
       <Head>
@@ -10,9 +14,19 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <PageWrapper />
-      </main>
+      <Layout>
+        <CustomDatePicker 
+          isEndDate 
+          startDatePlaceHolder="Start Date"
+          endDatePlaceHolder="End Date"
+          calendarStartFromMondayDay
+          endDateLimit={endDateLimit}
+          markSundayAsRed
+        />
+        <Link href="/demo">
+          <p className="mt-4 text-center text-xs px-2 py-2">Wanted to check on Demo? <span className="text-blue-500 font-semibold hover:underline">Check here for Demo</span></p>
+        </Link>
+      </Layout>
     </>
   );
 }

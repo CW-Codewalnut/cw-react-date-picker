@@ -53,7 +53,7 @@ export function CustomDatePicker({
   }, [startDate, endDate]);
   return (
     <div className={datePickerDynamicClasses}>
-      <span className="text-sm font-semibold	 whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
+      <span className="text-sm font-semibold whitespace-nowrap absolute -top-3 left-3 px-1 bg-white text-black text-opacity-60">
         {startDateLabel}
       </span>
       <button
@@ -61,7 +61,11 @@ export function CustomDatePicker({
         aria-label="Select departure date"
       >
         <DatePicker
-          placeholderText="Start Date"
+          dayClassName={(date) => clsx(
+            date.toDateString() === startDate?.toDateString()  && '',
+            date.getDay() === 0 && markSundayAsRed && '!text-red-500' // Additional condition, apply font-bold for Sundays
+          )}
+          placeholderText={startDatePlaceHolder}
           calendarClassName="!shadow-lg !flex !border-none"
           className="focus:outline-none w-fit text-sm font-medium"
           dateFormat="EEEE, dd MMM yyyy"
@@ -104,8 +108,9 @@ export function CustomDatePicker({
             aria-label="Select departure date"
           >
             <DatePicker
+              dayClassName={(date) => (date.getDay() === 0 && markSundayAsRed ? '!text-red-500 ' : '')}
               calendarClassName="!shadow-lg !flex !border-none"
-              placeholderText="End Date"
+              placeholderText={endDatePlaceHolder}
               className="focus:outline-none w-fit text-sm font-medium"
               dateFormat="EEEE, dd MMM yyyy"
               minDate={startDate}

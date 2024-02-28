@@ -1,6 +1,7 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { TextField } from "@/components/atoms/TextField/TextField";
 import { CustomDatePicker } from "@/components/atoms/DatePicker/DatePicker";
+import clsx from "clsx";
 
 export function DemoComponent() {
   const [startDateLabel, setStartDateLabel] = useState<string>("Start Date");
@@ -12,9 +13,18 @@ export function DemoComponent() {
   const [endDateLimit, setEndDateLimit] = useState<string>("");
   const [isDob, setIsDob] = useState<boolean>(false);
 
+  useEffect(()=>{
+    if(isDob) {
+      setStartDateLabel("Date of birth")
+      setIsEndDate(false);
+    }else {
+      setStartDateLabel("Start Date")
+    }
+  },[isDob])
+
   return (
-    <>
-      <div className="max-w-lg mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md">
+    <div className="flex justify-around space-x-4 px-4">
+      <div className="mt-8 p-4 border border-gray-200 rounded-md shadow-md">
         <h2 className="text-lg font-semibold mb-4 text-center">Custom Date Picker Demo</h2>
         <div className="mb-4">
           <TextField  label="Start Date Label"
@@ -55,13 +65,20 @@ export function DemoComponent() {
                     name="endDate"/>
           
         </div>
-        <div className="mb-4">
+        <div className="mb-4"
+          title={isDob ? "Please uncheck DOB for End Date feature" : "Enable End Date"}
+        >
           <input
             type="checkbox"
             id="isEndDate"
-            className="mr-2"
+            className={clsx(
+              "mr-2",
+            {
+              "cursor-not-allowed":isDob
+            })}
             checked={isEndDate}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setIsEndDate(event.target.checked)}
+            disabled={isDob}
           />
           <label htmlFor="isEndDate" className="text-sm font-medium text-gray-700">
             Is End Date
@@ -107,14 +124,10 @@ export function DemoComponent() {
             value={endDateLimit}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setEndDateLimit(event.target.value)}
           />
-        </div>
-        
-
-        
-        
+        </div>        
       </div>
-      <div className="mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md w-1/2 flex flex-col items-center">
-        <h2 className="text-lg font-semibold mb-4 text-center">Preview</h2>
+      <div className="mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md flex flex-col items-center">
+        <h2 className="md:w-[500px] text-lg font-semibold mb-4 text-center">Preview</h2>
         <div className="">
             <CustomDatePicker
               startDateLabel={startDateLabel}
@@ -129,6 +142,6 @@ export function DemoComponent() {
             />
         </div>
       </div>
-    </>
+    </div>
   );
 }

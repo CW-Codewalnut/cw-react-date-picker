@@ -18,9 +18,9 @@ export function DatePickerDay({
       <div
         className={clsx(
           // NOTE: A Few styles can be customized from global CSS.
-          "!rounded-[4.8px] h-9 w-9 flex flex-col items-center justify-between p-2 !bg-red-400", // Add default `background-color` with important notation for each day in the calender.
+          "!rounded-[4.8px] h-9 w-9 flex flex-col items-center justify-between p-2", // Add default `background-color` with important notation for each day in the calender.
           {
-            " dark:bg-black": !isSelectedDate,
+            " dark:!bg-black !bg-green-100": !isSelectedDate,
             "border border-primary dark:border-black !p-[7px] !bg-green-400":
               isSelectedDate, // Add selected day `background-color` with important notation in the calender
           }
@@ -28,7 +28,7 @@ export function DatePickerDay({
         aria-label="day-block-with-text"
       >
         <div
-          className={clsx("h-3 flex items-center justify-center", {
+          className={clsx("h-3 flex items-center justify-center font-semibold	", {
             " dark:text-white": !isSelectedDate,
             "text-primary dark:text-black": isSelectedDate,
             "text-primary dark:text-black ": isSelectedDate,
@@ -49,5 +49,5 @@ export function DatePickerDay({
       </div>
     );
   }
-  return <div>{day}</div>;
+  return <div className="font-semibold">{day}</div>;
 }
