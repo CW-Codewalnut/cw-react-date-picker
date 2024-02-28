@@ -57,7 +57,7 @@ export function DemoComponent() {
         </div>
         <div className="mb-4">
         <TextField  label="End Date Placeholder"
-                    value={startDatePlaceholder} 
+                    value={endDatePlaceholder} 
                     type="text"
                     id="endDatePlaceholder"
                     className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
@@ -81,11 +81,12 @@ export function DemoComponent() {
             disabled={isDob}
           />
           <label htmlFor="isEndDate" className="text-sm font-medium text-gray-700">
-            Is End Date
+            Enable End Date <span className="text-gray-400 text-xs">(DOB should disabled)</span>
           </label>
         </div>
         <div className="mb-4">
           <input
+            title="Enable Date of birth"
             type="checkbox"
             id="isDob"
             className="mr-2"
@@ -98,11 +99,12 @@ export function DemoComponent() {
             }}
           />
           <label htmlFor="isDob" className="text-sm font-medium text-gray-700">
-            Is Date of Birth
+            Enable Date of Birth
           </label>
         </div>
         <div className="mb-4">
           <input
+            title="Enable Start week as Monday"
             type="checkbox"
             id="calendarStartFromMondayDay"
             className="mr-2"
@@ -118,6 +120,7 @@ export function DemoComponent() {
             End Date Limit:
           </label>
           <input
+            title="Provide End Date limit"
             type="date"
             id="endDateLimit"
             className="border rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
