@@ -24,7 +24,7 @@ export default function Home() {
           markSundayAsRed
         />
         <Link href="/demo">
-          <p className="mt-4 text-center text-xs px-2 py-2">Wanted to check on Demo? <span className="text-blue-500 font-semibold hover:underline">Check here for Demo</span></p>
+          <p className="mt-4 text-center text-xs px-2 py-2">Would you like to check on Demo? <span className="text-blue-500 font-semibold hover:underline">Click here for Demo</span></p>
         </Link>
       </Layout>
     </>
