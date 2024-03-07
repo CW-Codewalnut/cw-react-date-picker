@@ -35,7 +35,7 @@ export function CustomDatePicker({
   const [endDate, setEndDate] = useState<Date>();
 
   const datePickerDynamicClasses = clsx(
-    "h-12 pl-4 w-fit pr-3 flex justify-between relative group items-center border rounded-md rounded-tr-none hover:border-gray-600 border-gray-200",
+    "h-12 pl-2 md:pl-4 w-fit pr-1 md:pr-3 flex justify-between relative group items-center border rounded-md rounded-tr-none hover:border-gray-600 border-gray-200",
     {
       "!border-primary border-2 hover:border-primary hover:border-2": true,
       [additionalDatePickerClasses]: additionalDatePickerClasses,
@@ -99,7 +99,7 @@ export function CustomDatePicker({
       </button>
       {isEndDate && (
         <>
-          <span className="w-1 border-2 border-red-500 mr-5 ml-3" />
+          <span className="w-1 border-2 border-red-500 mr-3 md:mr-5 ml-1 md:ml-3" />
           <span className="text-sm font-semibold whitespace-nowrap absolute -top-3 right-3 px-1 bg-white text-black text-opacity-60">
             {endDateLabel}
           </span>
