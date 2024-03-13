@@ -24,7 +24,7 @@ export function DemoComponent() {
 
   return (
     <div className="flex flex-col-reverse lg:flex-row justify-around gap-2 lg:space-x-3 md:px-4">
-      <div className="lg:mt-8 p-4 border border-gray-200 rounded-md shadow-md">
+      <div className="lg:mt-0 p-4 border border-gray-200 rounded-md shadow-md">
         <h2 className="text-lg font-semibold mb-4 text-center">Custom Date Picker Demo</h2>
         <div className="mb-4">
           <TextField  label="Start Date Label"
@@ -129,7 +129,7 @@ export function DemoComponent() {
           />
         </div>        
       </div>
-      <div className="lg:mx-auto mt-8 p-2 md:p-4 border border-gray-200 rounded-md shadow-md flex flex-col items-center">
+      <div className="lg:mx-auto mt-0 p-2 md:p-4 border border-gray-200 rounded-md shadow-md flex flex-col items-center">
         <h2 className="md:w-[500px] text-lg font-semibold mb-4 text-center">Preview</h2>
         <CustomDatePicker
           startDateLabel={startDateLabel}
