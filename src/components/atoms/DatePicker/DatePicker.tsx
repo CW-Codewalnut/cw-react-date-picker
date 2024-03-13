@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useMobileScreen } from "@/customHooks/useMobileScreen";
 import { DatePickerDay } from "./DatePickerDay/DatePickerDay";
 
 export interface CustomDatePickerProps {
@@ -33,6 +34,7 @@ export function CustomDatePicker({
 }: CustomDatePickerProps) {
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>();
+  const isMobile = useMobileScreen();
 
   const datePickerDynamicClasses = clsx(
     "h-12 pl-2 md:pl-4 w-fit pr-1 md:pr-3 flex justify-between relative group items-center border rounded-md rounded-tr-none hover:border-gray-600 border-gray-200",
@@ -67,9 +69,9 @@ export function CustomDatePicker({
           )}
           placeholderText={startDatePlaceHolder}
           calendarClassName="!shadow-lg !flex !border-none"
-          className="focus:outline-none w-fit text-sm font-medium"
+          className="focus:outline-none w-fit text-xs md:text-sm font-medium"
           dateFormat="EEEE, dd MMM yyyy"
-          monthsShown={isEndDate ? 2 : 1}
+          monthsShown={isEndDate && !isMobile ? 2 : 1}
           popperClassName="!py-6"
           selected={startDate}
           selectsStart
@@ -111,10 +113,10 @@ export function CustomDatePicker({
               dayClassName={(date) => (date.getDay() === 0 && markSundayAsRed ? '!text-red-500 ' : '')}
               calendarClassName="!shadow-lg !flex !border-none"
               placeholderText={endDatePlaceHolder}
-              className="focus:outline-none w-fit text-sm font-medium"
+              className="focus:outline-none w-fit text-xs md:text-sm font-medium"
               dateFormat="EEEE, dd MMM yyyy"
               minDate={startDate}
-              monthsShown={2}
+              monthsShown={isMobile? 1 : 2}
               popperClassName="!py-6"
               selected={endDate}
               selectsStart

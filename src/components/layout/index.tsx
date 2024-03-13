@@ -6,7 +6,7 @@ export function Layout({ children }: any) {
   return (
     <div className="flex h-auto flex-col md:flex-row">
       <Header />
-      <div className="flex w-full flex-col px-4">
+      <div className="flex w-full flex-col px-3 md:px-4">
         <MainContent>{children}</MainContent>
       </div>
     </div>
