@@ -92,7 +92,7 @@ export default function Home() {
                     
                 </ol>
             </section>
-            <section className="mt-8">
+            <section className="mt-8 mb-10">
                 <h2 className="text-2xl font-semibold mb-4">Contributors</h2>
                 <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-start space-x-6 pb-4">
                   <div className="md:m-4">
