@@ -25,7 +25,7 @@ export default function Home() {
             endDateLimit={endDateLimit}
             markSundayAsRed
           />
-          <Link href="/demo">
+          <Link href="/field-customization">
             <p className="mt-4 text-center text-md px-2 py-2">See the tool in action? <span className="text-blue-500 font-semibold hover:underline">try the tool</span></p>
           </Link>
         </div>

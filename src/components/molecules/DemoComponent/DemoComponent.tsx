@@ -23,8 +23,8 @@ export function DemoComponent() {
   },[isDob])
 
   return (
-    <div className="flex justify-around space-x-4 px-4">
-      <div className="mt-8 p-4 border border-gray-200 rounded-md shadow-md">
+    <div className="flex flex-col-reverse lg:flex-row justify-around gap-2 lg:space-x-3 md:px-4">
+      <div className="lg:mt-8 p-4 border border-gray-200 rounded-md shadow-md">
         <h2 className="text-lg font-semibold mb-4 text-center">Custom Date Picker Demo</h2>
         <div className="mb-4">
           <TextField  label="Start Date Label"
@@ -129,21 +129,19 @@ export function DemoComponent() {
           />
         </div>        
       </div>
-      <div className="mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md flex flex-col items-center">
+      <div className="lg:mx-auto mt-8 p-2 md:p-4 border border-gray-200 rounded-md shadow-md flex flex-col items-center">
         <h2 className="md:w-[500px] text-lg font-semibold mb-4 text-center">Preview</h2>
-        <div className="">
-            <CustomDatePicker
-              startDateLabel={startDateLabel}
-              endDateLabel={endDateLabel}
-              startDatePlaceHolder={startDatePlaceholder}
-              endDatePlaceHolder={endDatePlaceholder}
-              isEndDate={isEndDate}
-              calendarStartFromMondayDay={calendarStartFromMondayDay}
-              endDateLimit={endDateLimit ? new Date(endDateLimit) : undefined}
-              maxStartDate={isDob ? new Date(new Date().setFullYear(new Date().getFullYear() - 100)) : undefined} // Set max start date to 100 years ago if isDob is true
-              maxEndDate={isDob ? new Date() : undefined} 
-            />
-        </div>
+        <CustomDatePicker
+          startDateLabel={startDateLabel}
+          endDateLabel={endDateLabel}
+          startDatePlaceHolder={startDatePlaceholder}
+          endDatePlaceHolder={endDatePlaceholder}
+          isEndDate={isEndDate}
+          calendarStartFromMondayDay={calendarStartFromMondayDay}
+          endDateLimit={endDateLimit ? new Date(endDateLimit) : undefined}
+          maxStartDate={isDob ? new Date(new Date().setFullYear(new Date().getFullYear() - 100)) : undefined} // Set max start date to 100 years ago if isDob is true
+          maxEndDate={isDob ? new Date() : undefined} 
+        />
       </div>
     </div>
   );
