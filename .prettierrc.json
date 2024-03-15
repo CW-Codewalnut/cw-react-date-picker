@@ -1,0 +1,24 @@
+{
+  "bracketSpacing": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "importOrder": [
+    "(^react$|^react/(.*)$)",
+    "(^next$|^next/(.*)$)",
+    "<THIRD_PARTY_MODULES>",
+    "@/components/*",
+    "@/contexts/*",
+    "@/hooks/*",
+    "@/pages/*",
+    "@/public/*",
+    "@/styles/*",
+    "@/utils/*",
+    "@/types",
+    "^[../]",
+    "^[./]"
+  ]
+}

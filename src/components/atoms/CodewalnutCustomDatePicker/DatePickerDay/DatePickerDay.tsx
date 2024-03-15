@@ -23,16 +23,19 @@ export function DatePickerDay({
             " dark:!bg-black !bg-green-100": !isSelectedDate,
             "border border-primary dark:border-black !p-[7px] !bg-green-400":
               isSelectedDate, // Add selected day `background-color` with important notation in the calender
-          }
+          },
         )}
         aria-label="day-block-with-text"
       >
         <div
-          className={clsx("h-3 flex items-center justify-center font-semibold	", {
-            " dark:text-white": !isSelectedDate,
-            "text-primary dark:text-black": isSelectedDate,
-            "text-primary dark:text-black ": isSelectedDate,
-          })}
+          className={clsx(
+            "h-3 flex items-center justify-center font-semibold	",
+            {
+              " dark:text-white": !isSelectedDate,
+              "text-primary dark:text-black": isSelectedDate,
+              "text-primary dark:text-black ": isSelectedDate,
+            },
+          )}
         >
           {day}
         </div>
@@ -41,7 +44,7 @@ export function DatePickerDay({
             "h-2.5 flex items-center justify-center text-[6px] text-gray-600 font-semibold dark:text-white",
             {
               "dark:!text-black text-white": isSelectedDate,
-            }
+            },
           )}
         >
           {dayLabel.slice(0, 11)}
