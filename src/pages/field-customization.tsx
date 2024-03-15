@@ -5,6 +5,6 @@ export default function FieldCustomization() {
   return (
     <Layout>
       <DemoComponent />
-    </Layout>     
+    </Layout>
   );
 }

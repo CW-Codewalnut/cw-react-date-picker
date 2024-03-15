@@ -31,6 +31,4 @@ describe("TextField", () => {
     fireEvent.change(input, { target: { value: "test" } });
     expect(handleChange).toHaveBeenCalled();
   });
-
-  // Additional test cases can be added to cover more scenarios
 });
