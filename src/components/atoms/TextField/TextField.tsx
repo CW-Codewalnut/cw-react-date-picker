@@ -39,7 +39,7 @@ export function TextField({
 
   const inputDynamicClassNames = clsx(additionalInputClassNames, {
     "h-12 w-full border-[1px] rounded-md rounded-tr-none pl-3 pr-6 placeholder-gray-600 focus:border-2 focus:outline-none hover:border-gray-600 focus:border-primary border-gray-200":
-      true
+      true,
   });
 
   const labelDynamicClassNames = clsx(
@@ -47,8 +47,8 @@ export function TextField({
     "absolute top-5 left-3 text-md flex items-center  h-[10px] hover:cursor-text",
     "transform transition-all group-focus-within:text-xs group-focus-within:-translate-y-[24px] group-focus-within:-translate-x-[4px] group-focus-within:py-0.5 group-focus-within:px-1 group-focus-within:bg-white group-focus-within:!text-primary group-focus-within:dark:bg-gray-900 group-focus-within:dark:text-white",
     {
-      "-translate-y-[24px] bg-white px-1 text-xs -translate-x-[4px]": value
-    }
+      "-translate-y-[24px] bg-white px-1 text-xs -translate-x-[4px]": value,
+    },
   );
 
   return (
