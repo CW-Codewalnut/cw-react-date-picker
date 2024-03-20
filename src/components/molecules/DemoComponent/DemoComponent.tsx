@@ -107,8 +107,12 @@ export function DemoComponent() {
             htmlFor="isEndDate"
             className="text-sm font-medium text-gray-700"
           >
-            Enable End Date{" "}
-            <span className="text-gray-400 text-xs">(DOB should disabled)</span>
+            Enable End Date
+            {isDob && (
+              <span className="text-gray-400 text-xs">
+                (DOB should be disabled)
+              </span>
+            )}
           </label>
         </div>
         <div className="mb-4">
@@ -150,7 +154,7 @@ export function DemoComponent() {
         <div className="mb-4">
           <label
             htmlFor="endDateLimit"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 mb-2"
           >
             End Date Limit:
           </label>
