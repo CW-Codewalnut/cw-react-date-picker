@@ -27,7 +27,7 @@ export default function Home() {
           />
           <Link href="/field-customization">
             <p className="mt-4 text-center text-md px-2 py-2">
-              See the tool in action?
+              See the tool in action? &nbsp;
               <span className="text-blue-500 font-semibold hover:underline">
                 Try the tool
               </span>
